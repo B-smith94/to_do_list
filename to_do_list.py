@@ -31,70 +31,86 @@ def view_tasks(task_list_1, task_list_2):
 
 def complete_tasks(task_list):
     while True:
-        completed_task = input("Enter the task you wish to mark as complete: ")
-        if completed_task in incomplete_tasks:
-            if completed_task not in finished_tasks:
-                finished_tasks.append(completed_task)
-                incomplete_tasks.remove(completed_task)
-            else:
-                print("This task is already marked as complete.")
-        else:
-            print("Task not found.")
-        while True:
-            more_complete = input("Would you like to mark another task? (yes/no): ")
-            if more_complete.lower() == 'yes':
-                break
-            elif more_complete.lower() == 'no':
-                view_tasks(incomplete_tasks, finished_tasks)
-                break
-            else:
-                print("Invalid input, please try again.")
-                continue
-        if more_complete.lower() == 'yes':
-            continue
-        else:
+        if len(task_list) == 0:
+            print("\nNo tasks in the list yet.")
             break
-
-def delete_tasks(task_list_1, task_list_2):
-    while True:
-        while True:
-            task_list = input("Which list would you like to edit? (incomplete/finished): ")
-            if task_list.lower() == 'incomplete':
-                bad_task = input("please input the task you wish to remove from incomplete tasks: ")
-                if bad_task in task_list_1:
-                    task_list_1.remove(bad_task)
-                    print("Task removed.")
-                    break
+        else:
+            completed_task = input("Enter the task you wish to mark as complete: ")
+            if completed_task in incomplete_tasks:
+                if completed_task not in finished_tasks:
+                    finished_tasks.append(completed_task)
+                    incomplete_tasks.remove(completed_task)
                 else:
-                    print("Task not found. Please try again.")
-                    continue
-            elif task_list.lower() == 'finished':
-                bad_task = input("please input the task you wish to remove from finished tasks: ")
-                if bad_task in task_list_2:
-                    task_list_2.remove(bad_task)
-                    print("Task removed.")
-                    break
-                else:
-                    print("Task not found. Please try again.")
-                    continue
+                    print("This task is already marked as complete.")
             else:
-                print("Invalid input, please try again.")
-                continue
-        while True:
-            new_remove = input("Would you like to remove another task? (yes/no): ")
-            if new_remove.lower() != 'yes':
-                if new_remove.lower() == 'no':
+                print("Task not found.")
+            while True:
+                more_complete = input("Would you like to mark another task? (yes/no): ")
+                if more_complete.lower() == 'yes':
+                    break
+                elif more_complete.lower() == 'no':
                     view_tasks(incomplete_tasks, finished_tasks)
                     break
                 else:
-                    print("invalid input, please try again.")
+                    print("Invalid input, please try again.")
                     continue
+            if more_complete.lower() == 'yes':
+                continue
             else:
                 break
-        if new_remove.lower() == 'yes':
-            continue
-        else:
+
+def delete_tasks(task_list_1, task_list_2):
+    while True:
+        if len(task_list_1 + task_list_2) == 0:
+            print("\nNo tasks on either list.")
             break
+        else:
+            while True:
+                task_list = input("Which list would you like to edit? (incomplete/finished): ")
+                if task_list.lower() == 'incomplete':
+                    if len(task_list_1) == 0:
+                        print("No items in this list.")
+                        continue
+                    else:
+                        bad_task = input("please input the task you wish to remove from incomplete tasks: ")
+                        if bad_task in task_list_1:
+                            task_list_1.remove(bad_task)
+                            print("Task removed.")
+                            break
+                        else:
+                            print("Task not found. Please try again.")
+                            continue
+                elif task_list.lower() == 'finished':
+                    if len(task_list_2) == 0:
+                        print("No items in this list.")
+                        continue
+                    else:
+                        bad_task = input("please input the task you wish to remove from finished tasks: ")
+                        if bad_task in task_list_2:
+                            task_list_2.remove(bad_task)
+                            print("Task removed.")
+                            break
+                        else:
+                            print("Task not found. Please try again.")
+                            continue
+                else:
+                    print("Invalid input, please try again.")
+                    continue
+            while True:
+                new_remove = input("Would you like to remove another task? (yes/no): ")
+                if new_remove.lower() != 'yes':
+                    if new_remove.lower() == 'no':
+                        view_tasks(incomplete_tasks, finished_tasks)
+                        break
+                    else:
+                        print("invalid input, please try again.")
+                        continue
+                else:
+                    break
+            if new_remove.lower() == 'yes':
+                continue
+            else:
+                break
 
 def quit():
     print("\nThank you for using the To-Do List app! Have a wonderful day!\n")
