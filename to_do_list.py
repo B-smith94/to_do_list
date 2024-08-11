@@ -72,7 +72,7 @@ def delete_tasks(task_list_1, task_list_2):
                         print("No items in this list.")
                         continue
                     else:
-                        bad_task = input("please input the task you wish to remove from incomplete tasks: ")
+                        bad_task = input("Please input the task you wish to remove from incomplete tasks: ")
                         if bad_task in task_list_1:
                             task_list_1.remove(bad_task)
                             print("Task removed.")
@@ -85,7 +85,7 @@ def delete_tasks(task_list_1, task_list_2):
                         print("No items in this list.")
                         continue
                     else:
-                        bad_task = input("please input the task you wish to remove from finished tasks: ")
+                        bad_task = input("Please input the task you wish to remove from finished tasks: ")
                         if bad_task in task_list_2:
                             task_list_2.remove(bad_task)
                             print("Task removed.")
