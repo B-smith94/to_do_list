@@ -6,10 +6,10 @@ Date: 8/11/2024
 
 Welcome to the To-Do List application!  Here are the features you can expect to find in this app:
 
---create a to-do list
---once you finish something on your to-do-list, mark it as complete
---remove tasks from either finished or incomplete task lists
---view the lists of tasks in real time, based on what you have completed and what you still have to do
+-create a to-do list
+-once you finish something on your to-do-list, mark it as complete
+-remove tasks from either finished or incomplete task lists
+-view the lists of tasks in real time, based on what you have completed and what you still have to do
 
 ### Instructions on use: ###
 
