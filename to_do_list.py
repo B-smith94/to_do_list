@@ -122,7 +122,6 @@ while True:
         index = str(menu.index(number) + 1) + '.'
         choices = index + ' ' + number
         print(choices)
-        
     try:
         choice = int(input("\nPlease input the menu item number you wish to select (1 through 5): "))
     except ValueError:
