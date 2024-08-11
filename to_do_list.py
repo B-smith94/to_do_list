@@ -2,8 +2,8 @@ import pdb
 
 menu = ["Add a task", "view tasks", "Mark a task as complete", "Delete a task", "Quit"]
 
-incomplete_tasks = ['mow the lawn', 'cook dinner', 'clean the house']
-finished_tasks = ['call mom', 'walk the dog', 'grocery shopping']   
+incomplete_tasks = []
+finished_tasks = []   
 
 def add_task(task_list):
     while True:
